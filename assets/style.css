@@ -1,0 +1,230 @@
+:root{
+    --primary-color: #3ab5a4;    
+    --background-primary-color: #222e33; 
+    --background-secondary-color: #f6f6f6;   
+    --border-color: #d6d6d6;
+    --title-color: #0d0d0d;
+    --text-color: #3c3c3c;
+    --color-white: #fff;
+    --color-purple: #b473f5;
+    --color-pink: #e292aa;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+html, body {
+    height: 100vh;
+    width: 100%
+}
+
+body {
+    min-width: 20rem;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+}
+
+input, button {
+    background-color: transparent;
+    border: 0;
+}
+
+img, picture {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    display: block;
+}
+
+p, label {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+header, footer{
+    align-items: center;
+    background-color: var(--background-primary-color);
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+/* Slider */
+.slider {
+    flex-grow: 1;
+    padding: 3rem;
+    background: linear-gradient(90deg,var(--color-purple),var(--color-pink));
+}
+.slider-banner__container {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    grid-template-areas: "prev content next";
+    width: 100%;
+}
+@media screen and (max-width: 1024px) {
+    .slider-banner__container {
+        gap: 3.125rem;
+    }
+}
+@media screen and (max-width: 596px) {
+    .slider-banner__container {
+        gap: 1.25rem;
+    }
+}
+
+/* Banner */
+.banner {
+    position: relative;
+    grid-area: content;
+    opacity: 1;
+    z-index: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 50% auto;
+    gap: 2rem;
+    width: 100%;
+    place-items: center start;
+}
+@media screen and (max-width: 1024px) {
+    .banner {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        gap: 1rem;
+    }
+}
+@media screen and (max-width: 768px) {
+    .banner {
+        text-align: center;
+        place-items: center center;
+    }
+}
+.banner h1 {
+    font-size: 2rem;
+    color: var(--title-color);
+    font-family: Oswald, sans-serif;
+}
+.banner h2 {
+    font-size: 4.5rem;
+    color: var(--color-white);
+    line-height: 1em;
+    max-width: 37.5rem;
+    font-family: Oswald, sans-serif;
+}
+@media screen and (max-width: 596px) {
+    .banner h2 {
+        font-size: clamp(1rem, 10vw, 4.5rem);
+    }
+}
+.banner p {
+    padding-top: 0.875rem;
+    font-weight: 700;
+    color: var(--color-white);
+}
+.banner--hide {
+    opacity: 0;
+    z-index: -10;
+}
+.banner__texto--reverse {
+    order: 1;
+}
+.banner__picture {
+    max-height: 37.5rem;
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .banner__picture {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        right: 0;
+        width: 50%;
+        opacity: 0.5;
+    }
+}
+@media screen and (max-width: 768px) {
+    .banner__picture {
+        display: none;
+    }
+}
+
+.logo__imagen {
+    max-height: 3rem;
+    width: auto;
+    transition: width .3s ease;
+}
+
+.footer__copy {
+    color: var(--color-white);
+}
+.footer__copy-jjasdev {
+    color: var(--primary-color);
+}
+
+/* Buttons */
+.banner__button {
+    margin-block: 1rem;
+    padding: 1rem 2rem;   
+    text-transform: uppercase;
+    font-weight: 700; 
+    border-radius: 20px;
+    border: 1px solid var(--title-color);
+    background: linear-gradient(to left, var(--title-color) 50%, transparent 50%) no-repeat right/200%;
+    color: var(--color-white);
+    cursor: pointer;
+    transition: background-position 0.3s ease-in-out;
+}
+@media screen and (max-width: 768px) {
+    .banner__button {
+        width: 100%;
+    }
+}
+.banner__button:hover {
+    background-position: left;
+    color: var(--title-color);
+}
+
+.slider-banner__button--anterior {
+    grid-area: prev;
+}
+.slider-banner__button--siguiente {
+    grid-area: next;
+}
+
+  /* Indicators */
+.slider-banner__indicator {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 0.5rem;
+}
+.slider-banner__indicator-item {
+    width: 1.25rem;
+    height: 0.1875rem;
+    background-color: var(--color-white);
+}
+.slider-banner__indicator-item--active {
+    background-color: var(--title-color);
+}
+
+/* Indicators */
+.slider-banner__icon {
+    font-size: 3rem;
+    color: var(--color-white);
+    cursor: pointer;
+}
+@media screen and (max-width: 596px) {
+    .slider-banner__icon {
+        font-size: 2rem;
+    }
+}
+.slider-banner__icon:hover {
+    color: var(--title-color);
+}
