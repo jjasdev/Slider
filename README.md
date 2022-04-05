@@ -1,6 +1,6 @@
-# Selector de documentos
+# Slider
 
-Selector de documentos con carrusel adaptativo, fácil de usar en cualquier proyecto o sitio web.
+Slider web implementado con Vanilla JS, fácil de usar en cualquier proyecto o sitio web.
 
 ## Desarrollado con
 
